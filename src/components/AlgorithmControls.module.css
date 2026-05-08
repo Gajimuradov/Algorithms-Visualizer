@@ -1,0 +1,36 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.controls button {
+  min-height: 42px;
+  min-width: 88px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.controls button:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.controls button:disabled {
+  color: #98a2b3;
+  background: #f2f4f7;
+}
+
+.primaryButton {
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  background: var(--primary) !important;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--primary-strong) !important;
+}
+

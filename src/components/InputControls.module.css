@@ -1,0 +1,55 @@
+.inputGroup {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.inputGroup:last-child {
+  margin-bottom: 0;
+}
+
+.inputGroup label {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: #ffffff;
+}
+
+.inputGroup input,
+.inputGroup select {
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.inputGroup textarea {
+  min-height: 104px;
+  resize: vertical;
+  padding: 10px 12px;
+}
+
+.hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.codeBlock {
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: #f8fafc;
+  font-size: 0.88rem;
+}
+
