@@ -19,5 +19,24 @@ describe('binarySearchSteps', () => {
     expect(lastStep.state.status).toBe('not-found');
     expect(lastStep.state.foundIndex).toBeNull();
   });
-});
 
+  it('handles an empty array', () => {
+    const steps = [...binarySearchSteps([], 10)];
+    const lastStep = steps[steps.length - 1];
+
+    expect(steps).toHaveLength(2);
+    expect(lastStep.done).toBe(true);
+    expect(lastStep.state.status).toBe('not-found');
+    expect(lastStep.state.left).toBe(0);
+    expect(lastStep.state.right).toBe(-1);
+  });
+
+  it('finds a valid index when duplicates are present', () => {
+    const steps = [...binarySearchSteps([1, 2, 2, 2, 4, 8], 2)];
+    const lastStep = steps[steps.length - 1];
+
+    expect(lastStep.state.status).toBe('found');
+    expect(lastStep.state.foundIndex).not.toBeNull();
+    expect(lastStep.state.array[lastStep.state.foundIndex as number]).toBe(2);
+  });
+});

@@ -18,5 +18,20 @@ describe('selectionSortSteps', () => {
     expect(lastStep.done).toBe(true);
     expect(lastStep.state.sortedIndices).toEqual([0, 1, 2]);
   });
-});
 
+  it('handles an empty array', () => {
+    const steps = [...selectionSortSteps([])];
+    const lastStep = steps[steps.length - 1];
+
+    expect(lastStep.done).toBe(true);
+    expect(lastStep.state.array).toEqual([]);
+    expect(lastStep.state.sortedIndices).toEqual([]);
+  });
+
+  it('sorts arrays with duplicate values', () => {
+    const steps = [...selectionSortSteps([4, 2, 4, 1, 2])];
+    const lastStep = steps[steps.length - 1];
+
+    expect(lastStep.state.array).toEqual([1, 2, 2, 4, 4]);
+  });
+});
