@@ -22,10 +22,12 @@ export function AlgorithmShell({
   totalSteps,
   visualization
 }: AlgorithmShellProps) {
+  const progress = totalSteps <= 1 ? 100 : (stepIndex / (totalSteps - 1)) * 100;
+
   return (
     <section className={styles.shell}>
       <header className={styles.header}>
-        <div>
+        <div className={styles.headerCopy}>
           <p className={styles.eyebrow}>Algorithms Visualizer</p>
           <h1>{algorithm.title}</h1>
           <p className={styles.subtitle}>{algorithm.subtitle}</p>
@@ -34,7 +36,10 @@ export function AlgorithmShell({
       </header>
 
       <div className={styles.description}>
-        <p>{algorithm.description}</p>
+        <div>
+          <span>Идея алгоритма</span>
+          <p>{algorithm.description}</p>
+        </div>
         <div className={styles.topicList}>
           {algorithm.topics.map((topic) => (
             <span key={topic}>{topic}</span>
@@ -54,10 +59,21 @@ export function AlgorithmShell({
 
         <section className={styles.visualPanel}>
           <div className={styles.visualHeader}>
-            <h2>Визуализация</h2>
-            <span>
-              Step {Math.min(stepIndex + 1, totalSteps)} / {totalSteps}
-            </span>
+            <div>
+              <h2>Визуализация шага</h2>
+              <p>Следите за активными указателями, очередью, стеком или visited-состояниями.</p>
+            </div>
+            <span>Step {Math.min(stepIndex + 1, totalSteps)} / {totalSteps}</span>
+          </div>
+          <div
+            className={styles.progressTrack}
+            aria-label="Algorithm progress"
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={Math.round(progress)}
+            role="progressbar"
+          >
+            <span style={{ width: `${progress}%` }} />
           </div>
           {visualization}
           <div className={styles.explanation}>
@@ -69,4 +85,3 @@ export function AlgorithmShell({
     </section>
   );
 }
-

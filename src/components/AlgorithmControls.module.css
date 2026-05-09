@@ -1,22 +1,28 @@
 .controls {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
 .controls button {
   min-height: 42px;
-  min-width: 88px;
   padding: 0 16px;
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
   background: var(--surface);
+  font-weight: 800;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
 }
 
 .controls button:hover:not(:disabled) {
   border-color: var(--primary);
   color: var(--primary);
+  transform: translateY(-1px);
 }
 
 .controls button:disabled {
@@ -28,9 +34,9 @@
   border-color: var(--primary) !important;
   color: #ffffff !important;
   background: var(--primary) !important;
+  box-shadow: 0 8px 18px rgb(31 94 255 / 18%);
 }
 
 .primaryButton:hover:not(:disabled) {
   background: var(--primary-strong) !important;
 }
-

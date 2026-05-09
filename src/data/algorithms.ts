@@ -21,9 +21,9 @@ export const algorithms: AlgorithmInfo[] = [
   {
     id: 'binary-search',
     title: 'Binary Search',
-    subtitle: 'Пошаговый поиск в отсортированном массиве',
+    subtitle: 'Поиск в отсортированном массиве через сужение диапазона',
     description:
-      'Алгоритм делит область поиска пополам и сравнивает target со средним элементом, пока значение не найдено или границы не пересекутся.',
+      'На каждом шаге алгоритм смотрит на середину текущего диапазона и отбрасывает половину массива, где target точно не может находиться.',
     complexity: {
       time: 'O(log n)',
       space: 'O(1)'
@@ -33,9 +33,9 @@ export const algorithms: AlgorithmInfo[] = [
   {
     id: 'selection-sort',
     title: 'Selection Sort',
-    subtitle: 'Сортировка через поиск минимума',
+    subtitle: 'Сортировка через выбор минимума для каждой позиции',
     description:
-      'На каждой итерации выбирается минимальный элемент из неотсортированной части и переносится на текущую позицию.',
+      'Алгоритм проходит по неотсортированной части массива, находит минимум и ставит его на следующую фиксированную позицию.',
     complexity: {
       time: 'O(n²)',
       space: 'O(1)'
@@ -45,7 +45,7 @@ export const algorithms: AlgorithmInfo[] = [
   {
     id: 'stack',
     title: 'Stack',
-    subtitle: 'LIFO структура данных',
+    subtitle: 'LIFO структура: последний добавленный уходит первым',
     description:
       'Стек добавляет и удаляет элементы только с вершины. Последний добавленный элемент будет обработан первым.',
     complexity: {
@@ -57,7 +57,7 @@ export const algorithms: AlgorithmInfo[] = [
   {
     id: 'queue',
     title: 'Queue',
-    subtitle: 'FIFO структура данных',
+    subtitle: 'FIFO структура: первый добавленный уходит первым',
     description:
       'Очередь добавляет элементы в конец и удаляет из начала. Первый добавленный элемент будет обработан первым.',
     complexity: {
@@ -69,7 +69,7 @@ export const algorithms: AlgorithmInfo[] = [
   {
     id: 'bfs',
     title: 'BFS',
-    subtitle: 'Обход графа в ширину',
+    subtitle: 'Обход графа слоями с помощью очереди',
     description:
       'BFS использует очередь и проходит граф слоями: сначала ближайшие соседи, затем вершины следующего уровня.',
     complexity: {
@@ -81,7 +81,7 @@ export const algorithms: AlgorithmInfo[] = [
   {
     id: 'dfs',
     title: 'DFS',
-    subtitle: 'Обход графа в глубину',
+    subtitle: 'Обход графа в глубину с помощью стека',
     description:
       'DFS использует стек и углубляется по одному пути, пока может, затем возвращается к непосещенным соседям.',
     complexity: {
@@ -101,4 +101,3 @@ export function getAlgorithmById(id: AlgorithmId): AlgorithmInfo {
 
   return algorithm;
 }
-
